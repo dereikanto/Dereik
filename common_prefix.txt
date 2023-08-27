@@ -1,0 +1,24 @@
+def prefix(ip):
+    if not ip:
+        return ""
+    
+    min_len = min(len(s) for s in ip)
+    com_pre = ""
+    
+    for i in range(min_len):
+        char = ip[0][i]
+        
+        for s in ip[1:]:
+            if s[i] != char:
+                return com_pre
+            
+        com_pre += char
+    
+    return com_pre
+
+# Test cases
+ip_1 = ["light", "live", "liver"]
+print(prefix(ip_1)) 
+
+ip_2 = ["light", "racecar", "car"]
+print(prefix(ip_2))  
